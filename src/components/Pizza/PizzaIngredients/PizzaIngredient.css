@@ -1,0 +1,135 @@
+.pizzapan{
+  width: 300px;
+  height: 280px;
+  background-color: rgb(170, 74, 5);
+  border-radius: 63px;
+  transform: rotate(45deg);
+  margin-left: 80px;
+  position: absolute;
+}
+
+.panhandle{
+  width:30px;
+  height: 450px;
+  background-color: rgb(170, 74, 5);
+  transform: rotate(45deg);
+  margin-top: 130px;
+  position: absolute;
+}
+
+.tomatosauce{
+  width: 270px;
+  height: 270px;
+  border-radius: 100%;
+  background-color: rgb(179, 18, 18);
+  position: absolute;
+  margin-left: 90px;
+}
+
+.cheese{
+  width: 240px;
+  height: 240px;
+  border-radius: 100%;
+  background-color: rgb(224, 223, 206);
+  position: absolute;
+  margin-left: 105px;
+  margin-top: 15px;
+}
+
+.pepperoni-holder{
+  width: 310px;
+  height: 310px;
+  /* position: absolute; */
+  top: 20px;
+  left: 20px;
+}
+
+.pepperoni{
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: rgb(179, 18, 18);
+  margin-left: 160px;
+  top: 135px;
+  position: absolute;
+}
+
+
+.sausage-holder{
+  width: 310px;
+  height: 310px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+} 
+
+.sausage{
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: rgb(147, 73, 6);
+  margin: 2% auto;
+  margin-left: 230px;
+  top: 135px;
+  position: absolute;
+
+}
+
+
+.mushroom-holder{
+  width: 310px;
+  height: 310px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.mushroom{
+  width: 35px;
+  height: 20px;
+  border-radius:20px;
+  background-color: rgb(189, 129, 28);
+  margin: 1% auto;
+  margin-left: 200px;
+  top: 220px;
+  position: absolute;
+}
+
+.olive-holder{
+  width: 310px;
+  height: 310px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.olive{
+  width: 15px;
+  height: 25px;
+  border-radius: 100%;
+  background-color: rgb(0,0,0);
+  margin: 1% auto;
+  margin-left: 280px;
+  top: 220px;
+  position: absolute;
+}
+
+.pepper-holder{
+  width: 310px;
+  height: 310px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.pepper{
+  width: 10px;
+  height: 70px;
+  border-radius: 100%;
+  background-color: rgb(18, 190, 61);
+  position: absolute;
+  top: 192px;
+  left: 130px;
+  
+
+}
