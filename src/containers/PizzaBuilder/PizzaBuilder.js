@@ -4,6 +4,8 @@ import Pizza from '../../components/Pizza/Pizza';
 import BuildControls from '../../components/Pizza/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Pizza/OrderSummary/OrderSummary';
+import Spinner from '../../components/UI/Spinner/Spinner';
+import axios from '../../axios-orders';
 
 const INGREDIENT_PRICES = {
     pepperoni: 0.1,
@@ -25,7 +27,8 @@ class PizzaBuilder extends Component {
         },
         totalPrice: 0,
         purchasable: false,
-        purchasing: false
+        purchasing: false,
+        loading: false
     }
 
 
@@ -100,8 +103,33 @@ class PizzaBuilder extends Component {
         this.setState({purchasing: false});
     }
 
+    //tuka go pravam HTTP request
+    //ke go iskoristime ovoj method here, zad ada pratime request do nashiot backend
+    //for storing data, koristime post()
     purchaseContinueHandelr = () => {
-        alert('You continue!');
+        //alert('You continue!');
+        this.setState({loading: true});
+        const order = {
+            ingredients: this.state.ingredients,
+            price: this.state.totalPrice,
+            customer: {
+                name: 'Sanja Gorgievska',
+                address: {
+                    street: 'Street12',
+                    town: 'Veles',
+                    country: 'North Macedonia'
+                },
+                email: 'gorgievska@gmail.com'
+            }
+
+        }
+        axios.post('/orders.json',order)
+        .then(response => {
+            this.setState({loading: false, purchasing: false});
+        })
+        .catch(error => {
+            this.setState({loading: false, purchasing: false});
+        });
     }
 
     render() {
@@ -111,21 +139,27 @@ class PizzaBuilder extends Component {
         for(let key in disabledInfo) {
             disabledInfo[key] = disabledInfo[key] <= 0
         } 
-
+        
+        let OrderSummary =  <OrderSummary 
+        ingredients={this.state.ingredients}
+        price={this.state.totalPrice}
+        purchaseCancelled={this.purchaseCancelHandelr}
+        purchaseContinued={this.purchaseContinueHandelr}/>
+        if(this.state.loading){
+            OrderSummary = <Spinner/>
+        }
         //OrderSummary treba da ima propery ingredients zatoa sto nie pristapuvame
         //na props object vo OrderSummary/const ingredientSummary = Object.keys(props.ingredients).map()
         //taka sto nie treba da gi dodelime ingredients  i gi dobivame od state
 
         //na Modal mu dodavame property show i bind it to the purchasing state
         //ako purchase e true togas Modal ke bide visiable
+
+        //treba da proverime koga OrderSummary e rerender preku dodavanje na life cycle hook
         return(
             <Aux>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandelr}>
-                    <OrderSummary 
-                    ingredients={this.state.ingredients}
-                    price={this.state.totalPrice}
-                    purchaseCancelled={this.purchaseCancelHandelr}
-                    purchaseContinued={this.purchaseContinueHandelr}/>
+                   {OrderSummary}
                 </Modal>
                 <Pizza ingredients={this.state.ingredients}/>
                 <BuildControls
