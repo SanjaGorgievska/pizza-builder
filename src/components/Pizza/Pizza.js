@@ -3,11 +3,6 @@ import classes from './Pizza.css';
 import PizzaIngredient from './PizzaIngredients/PizzaIngredient';
 
 const pizza = (props) => {
-    //keys methodot pravi extract na keys na daden objekt i go pretvora vo array
-    //odnosno niza od kluchevi
-    //map() izvrshuva f-ja na sekoj element vo input arrray
-    //nacin na transformiranje na object key value pairs vo array so pizza sostojki
-    //odnosno kolku sosotjki ni trebaat i key e vazen za topot na sostojkata
     let transformedIngredients = Object.keys(props.ingredients).map(igKey => {
         return [...Array(props.ingredients[igKey])].map((_, i) => {
             return <PizzaIngredient key={igKey + i} type={igKey}/>
