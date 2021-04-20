@@ -95,7 +95,6 @@ class PizzaBuilder extends Component {
 
    
     purchaseContinueHandelr = () => {
-        //alert('You continue!');
         this.setState({loading: true});
         const order = {
             ingredients: this.state.ingredients,
