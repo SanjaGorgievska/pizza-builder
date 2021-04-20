@@ -9,11 +9,6 @@ const controls = [
     {label: 'Mushroom',type: 'mushroom'},
     {label: 'Olive',type: 'olive'},
 ];
-//so .map()-> mapira sekoja element od nizata vo BuildControl
-//vnatre vo divot sakame da vrtime nis site controls i da renderirame build control za sekoj od niv
-//{controls.map(ctrl => ova znaci ctrl kako eden element od ovaa array od controls into build control
-//i potoa go renderirame vo PizzaBuilder
-
 
 const BuildControls = (props) => (
         <div className={classes.BuildControls}>
